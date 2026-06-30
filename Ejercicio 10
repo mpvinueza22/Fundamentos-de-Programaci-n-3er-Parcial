@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() 
+{
+    int lineas, f, col, centro, espacios, asteriscos;
+    int *p_lin = &lineas, *p_f = &f, *p_col = &col;
+    int *p_cen = &centro, *p_esp = &espacios, *p_ast = &asteriscos;
+
+    printf("Ingrese un numero impar de lineas (1-19): ");
+    scanf("%d", p_lin);
+
+    if (*p_lin >= 1 && *p_lin <= 19 && *p_lin % 2 != 0) 
+    {
+        *p_cen = (*p_lin / 2) + 1; // Fila central
+
+        for (*p_f = 1; *p_f <= *p_lin; (*p_f)++) 
+        {
+            *p_esp = abs(*p_cen - *p_f);
+            *p_ast = *p_lin - (2 * (*p_esp));
+
+            for (*p_col = 1; *p_col <= *p_esp; (*p_col)++) 
+            {
+                printf(" ");
+            }
+            
+            for (*p_col = 1; *p_col <= *p_ast; (*p_col)++) 
+            {
+                printf("*");
+            }
+            printf("\n");
+        }
+    } 
+    else 
+    {
+        printf("El numero ingresado no cumple con las condiciones.\n");
+    }
+
+    return 0;
+}

@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() 
+{
+    int numero, d1, d2, d4, d5;
+    int *p_num = &numero;
+    int *p1 = &d1, *p2 = &d2, *p4 = &d4, *p5 = &d5;
+
+    printf("Ingrese un numero de 5 digitos: ");
+    scanf("%d", p_num);
+
+    *p1 = *p_num / 10000;         // Primer dígito
+    *p2 = (*p_num / 1000) % 10;   // Segundo dígito
+    *p4 = (*p_num / 10) % 10;     // Cuarto dígito
+    *p5 = *p_num % 10;            // Quinto dígito
+
+    if (*p1 == *p5 && *p2 == *p4) 
+    {
+        printf("El numero %d es un palindromo.\n", *p_num);
+    } 
+    else 
+    {
+        printf("El numero %d NO es un palindromo.\n", *p_num);
+    }
+
+    return 0;
+}

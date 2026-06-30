@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() 
+{
+    int numero, suma = 0, contador = 0, minimo;
+    float promedio;
+    
+    int *p_num = &numero, *p_suma = &suma, *p_cont = &contador, *p_min = &minimo;
+    float *p_prom = &promedio;
+
+    printf("Ingrese una secuencia de enteros (9999 para terminar):\n");
+    scanf("%d", p_num);
+
+    if (*p_num != 9999) 
+    {
+        *p_min = *p_num; 
+        
+        while (*p_num != 9999) 
+        {
+            *p_suma = *p_suma + *p_num;
+            (*p_cont)++;
+            
+            if (*p_num < *p_min) 
+            {
+                *p_min = *p_num;
+            }
+            
+            scanf("%d", p_num);
+        }
+
+        *p_prom = (float)(*p_suma) / (*p_cont);
+        printf("\nPromedio: %.2f\n", *p_prom);
+        printf("El numero mas pequeno es: %d\n", *p_min);
+    } 
+    else 
+    {
+        printf("No se ingresaron números antes del centinela.\n");
+    }
+
+    return 0;
+}

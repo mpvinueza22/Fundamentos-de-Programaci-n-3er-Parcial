@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() 
+{
+    int horas;
+    float tasa, salario;
+
+    int *p_hrs = &horas;
+    float *p_tasa = &tasa, *p_sal = &salario;
+
+    while (1) 
+    {
+        printf("Ingrese # de horas trabajadas <-1 para fin>: ");
+        scanf("%d", p_hrs);
+
+        if (*p_hrs == -1) 
+        {
+            break;
+        }
+
+        printf("Ingrese la tasa horaria (00.00 dolares): ");
+        scanf("%f", p_tasa);
+
+        
+        if (*p_hrs <= 40) 
+        {
+            *p_sal = *p_hrs * (*p_tasa);
+        } 
+        else 
+        {
+            
+            *p_sal = (40 * (*p_tasa)) + ((*p_hrs - 40) * (*p_tasa) * 1.5);
+        }
+
+        printf("El salario es: %.2f dolares\n\n", *p_sal);
+    }
+
+    return 0;
+}

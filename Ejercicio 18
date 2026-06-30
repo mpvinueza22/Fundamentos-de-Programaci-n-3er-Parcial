@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() 
+{
+    float ventas, salario;
+    float *p_ven = &ventas, *p_sal = &salario;
+
+    while (1) 
+    {
+        printf("Ingrese las ventas <-1 para fin>: ");
+        scanf("%f", p_ven);
+
+        if (*p_ven == -1.0) 
+        {
+            break;
+        }
+
+      
+        *p_sal = 200.0 + (0.09 * (*p_ven));
+        printf("El salario es: %.2f dolares\n\n", *p_sal);
+    }
+
+    return 0;
+}

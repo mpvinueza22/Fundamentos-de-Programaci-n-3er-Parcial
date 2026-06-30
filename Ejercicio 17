@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+int main() 
+{
+    float galones, kilometros, km_por_galon;
+    float total_galones = 0.0, total_kilometros = 0.0, promedio_combinado;
+    
+    float *p_gal = &galones, *p_km = &kilometros, *p_kpg = &km_por_galon;
+    float *p_tot_gal = &total_galones, *p_tot_km = &total_kilometros, *p_prom = &promedio_combinado;
+
+    while (1) 
+    {
+        printf("Ingrese los galones usados <-1 para fin>: ");
+        scanf("%f", p_gal);
+
+        
+        if (*p_gal == -1.0) 
+        {
+            break;
+        }
+
+        printf("Ingrese los kilometros conducidos: ");
+        scanf("%f", p_km);
+
+      
+        *p_kpg = *p_km / *p_gal;
+        printf("Los km/galon para este tanque fue: %.3f\n\n", *p_kpg);
+
+        
+        *p_tot_gal = *p_tot_gal + *p_gal;
+        *p_tot_km = *p_tot_km + *p_km;
+    }
+
+    
+    if (*p_tot_gal > 0.0) 
+    {
+        *p_prom = *p_tot_km / *p_tot_gal;
+        printf("El promedio de los km/galon fue: %.3f\n", *p_prom);
+    } 
+    else 
+    {
+        printf("No se ingresaron datos de tanques.\n");
+    }
+
+    return 0;
+}

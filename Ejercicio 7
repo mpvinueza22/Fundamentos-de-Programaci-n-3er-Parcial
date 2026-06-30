@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main() 
+{
+    float a, b, c;
+    float *pa = &a, *pb = &b, *pc = &c;
+
+    printf("Ingrese tres lados del triangulo (float diferentes de 0):\n");
+    scanf("%f %f %f", pa, pb, pc);
+
+    if ((*pa + *pb > *pc) && (*pa + *pc > *pb) && (*pb + *pc > *pa)) 
+    {
+        printf("Los valores SI pueden representar los lados de un triangulo.\n");
+
+        if ((*pa * *pa + *pb * *pb == *pc * *pc) || 
+            (*pa * *pa + *pc * *pc == *pb * *pb) || 
+            (*pb * *pb + *pc * *pc == *pa * *pa)) 
+        {
+            printf("Ademas, SI es un triangulo rectangulo.\n");
+        } 
+        else 
+        {
+            printf("Pero NO es un triangulo rectangulo.\n");
+        }
+    } 
+    else 
+    {
+        printf("Los valores NO pueden formar un triangulo.\n");
+    }
+
+    return 0;
+}

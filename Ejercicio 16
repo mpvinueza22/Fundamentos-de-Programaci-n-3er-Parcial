@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main() 
+{
+    int lineas, f, col, esp, digito;
+    int *p_lin = &lineas, *p_f = &f, *p_col = &col, *p_esp = &esp, *p_dig = &digito;
+
+    printf("Ingrese el numero de lineas de la piramide: ");
+    scanf("%d", p_lin);
+
+    if (*p_lin > 0) 
+    {
+        for (*p_f = 1; *p_f <= *p_lin; (*p_f)++) 
+        {
+           
+            for (*p_esp = 1; *p_esp <= *p_lin - *p_f; (*p_esp)++) 
+            {
+                printf(" ");
+            }
+
+          
+            for (*p_col = 1; *p_col <= *p_f; (*p_col)++) 
+            {
+                *p_dig = (*p_f + *p_col - 1) % 10;
+                printf("%d", *p_dig);
+            }
+
+            
+            for (*p_col = *p_f + 1; *p_col <= 2 * *p_f - 1; (*p_col)++) 
+            {
+                *p_dig = (*p_f + (2 * *p_f - *p_col) - 1) % 10;
+                printf("%d", *p_dig);
+            }
+
+            printf("\n"); // Salto de línea por fila
+        }
+    } 
+    else 
+    {
+        printf("El numero de lineas debe ser mayor a 0.\n");
+    }
+
+    return 0;
+}

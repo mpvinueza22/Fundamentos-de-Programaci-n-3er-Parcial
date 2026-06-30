@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main() 
+{
+    int lado, f, col;
+    int *p_lado = &lado, *p_f = &f, *p_col = &col;
+
+    printf("Ingrese el lado del cuadrado (entre 1 y 20): ");
+    scanf("%d", p_lado);
+
+    if (*p_lado >= 1 && *p_lado <= 20) 
+    {
+        for (*p_f = 1; *p_f <= *p_lado; (*p_f)++) 
+        {
+            for (*p_col = 1; *p_col <= *p_lado; (*p_col)++) 
+            {
+                
+                if (*p_f == 1 || *p_f == *p_lado || *p_col == 1 || *p_col == *p_lado) 
+                {
+                    printf("*");
+                } 
+                else 
+                {
+                    printf(" ");
+                }
+            }
+            printf("\n"); 
+        }
+    } 
+    else 
+    {
+        printf("Tamaño fuera de rango.\n");
+    }
+
+    return 0;
+}

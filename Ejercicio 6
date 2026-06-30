@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() 
+{
+    int n, i, suma;
+    int *p_n = &n, *p_i = &i, *p_suma = &suma;
+
+    while (1) 
+    {
+        printf("Ingrese un numero positivo n (0 o negativo para salir): ");
+        scanf("%d", p_n);
+
+        if (*p_n <= 0) 
+        {
+            printf("Programa terminado.\n");
+            break;
+        }
+
+        *p_suma = 0;
+        for (*p_i = 1; *p_i <= *p_n; *p_i = *p_i + 2) 
+        {
+            *p_suma = *p_suma + *p_i;
+        }
+
+        printf("La suma de los impares hasta %d es: %d\n\n", *p_n, *p_suma);
+    }
+
+    return 0;
+}

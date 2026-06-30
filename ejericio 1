@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+    int tope, i;
+    int *p_tope = &tope, *p_i = &i;
+    int num, cuad, cubo;
+    int *p_num = &num, *p_cuad = &cuad, *p_cubo = &cubo;
+
+    printf("Ingrese el tope: ");
+    scanf("%d", p_tope); // Pasamos el puntero directamente
+
+    printf("\nNUMERO\tCUADRADO\tCUBO\n");
+
+    for (*p_i = 1; *p_i <= *p_tope; (*p_i)++)
+    {
+        *p_num = *p_i;
+        *p_cuad = (*p_num) * (*p_num);
+        *p_cubo = (*p_num) * (*p_num) * (*p_num);
+
+        printf("%d\t%d\t\t%d\n", *p_num, *p_cuad, *p_cubo);
+    }
+
+    return 0;
+}

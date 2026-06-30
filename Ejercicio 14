@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+int main() 
+{
+    int opcion, n1, n2, suma, centinela;
+    int *p_opc = &opcion, *p_n1 = &n1, *p_n2 = &n2, *p_sum = &suma, *p_cent = &centinela;
+
+    printf("=== MENU EJERCICIO 14 ===\n");
+    printf("1. Sumar dos numeros\n");
+    printf("2. Determinar el mayor de dos numeros\n");
+    printf("3. Sumar una serie de numeros (termina con -1)\n");
+    printf("Ingrese su opcion: ");
+    scanf("%d", p_opc);
+
+    switch (*p_opc) 
+    {
+        case 1:
+            printf("\nIngrese dos numeros: ");
+            scanf("%d %d", p_n1, p_n2);
+            *p_sum = *p_n1 + *p_n2;
+            printf("El resultado de la suma es: %d\n", *p_sum);
+            break;
+
+        case 2:
+            printf("\nIngrese dos numeros: ");
+            scanf("%d %d", p_n1, p_n2);
+            if (*p_n1 > *p_n2) 
+                printf("El mayor es: %d\n", *p_n1);
+            else if (*p_n2 > *p_n1) 
+                printf("El mayor es: %d\n", *p_n2);
+            else 
+                printf("Ambos numeros son iguales.\n");
+            break;
+
+        case 3:
+            *p_sum = 0;
+            printf("\nIngrese numeros positivos a sumar (ingrese -1 para terminar):\n");
+            while (1) 
+            {
+                scanf("%d", p_cent);
+                if (*p_cent == -1) 
+                    break;
+                *p_sum = *p_sum + *p_cent;
+            }
+            printf("La suma total de la serie es: %d\n", *p_sum);
+            break;
+
+        default:
+            printf("\nOpcion no valida.\n");
+    }
+
+    return 0;
+}

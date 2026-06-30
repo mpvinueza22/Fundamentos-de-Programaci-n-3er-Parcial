@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int main() 
+{
+    int opcion, i, num, suma, producto, limite, cantidad;
+    int *p_opc = &opcion, *p_i = &i, *p_num = &num;
+    int *p_sum = &suma, *p_prod = &producto, *p_lim = &limite, *p_cant = &cantidad;
+
+    printf("=== MENU EJERCICIO 13 ===\n");
+    printf("1. Sumar una secuencia de N numeros\n");
+    printf("2. Sumar enteros pares del 2 al valor n\n");
+    printf("3. Multiplicar enteros impares del 1 al valor m\n");
+    printf("Ingrese su opcion: ");
+    scanf("%d", p_opc);
+
+    switch (*p_opc) 
+    {
+        case 1:
+            printf("\nIngrese la cantidad de valores a sumar: ");
+            scanf("%d", p_cant);
+            *p_sum = 0;
+            printf("Ingrese los %d numeros:\n", *p_cant);
+            for (*p_i = 1; *p_i <= *p_cant; (*p_i)++) 
+            {
+                scanf("%d", p_num);
+                *p_sum = *p_sum + *p_num;
+            }
+            printf("La suma total es: %d\n", *p_sum);
+            break;
+
+        case 2:
+            printf("\nIngrese el valor limite n: ");
+            scanf("%d", p_lim);
+            *p_sum = 0;
+            for (*p_i = 2; *p_i <= *p_lim; *p_i = *p_i + 2) 
+            {
+                *p_sum = *p_sum + *p_i;
+            }
+            printf("La suma de los pares hasta %d es: %d\n", *p_lim, *p_sum);
+            break;
+
+        case 3:
+            printf("\nIngrese el valor limite m: ");
+            scanf("%d", p_lim);
+            *p_prod = 1;
+            for (*p_i = 1; *p_i <= *p_lim; *p_i = *p_i + 2) 
+            {
+                *p_prod = *p_prod * (*p_i);
+            }
+            printf("El producto de los impares hasta %d es: %d\n", *p_lim, *p_prod);
+            break;
+
+        default:
+            printf("\nOpcion no valida.\n");
+    }
+
+    return 0;
+}

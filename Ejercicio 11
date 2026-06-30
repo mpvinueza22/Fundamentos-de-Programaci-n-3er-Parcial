@@ -1,0 +1,61 @@
+#include <stdio.h>
+
+int main() 
+{
+    int f, col, esp;
+    int *p_f = &f, *p_col = &col, *p_esp = &esp;
+
+    printf("(a)\n");
+    for (*p_f = 1; *p_f <= 10; (*p_f)++) 
+    {
+        for (*p_col = 1; *p_col <= *p_f; (*p_col)++) 
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    printf("\n(b)\n");
+    for (*p_f = 10; *p_f >= 1; (*p_f)--) 
+    {
+        for (*p_col = 1; *p_col <= *p_f; (*p_col)++) 
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    printf("\n(c)\n");
+    for (*p_f = 10; *p_f >= 1; (*p_f)--) 
+    {
+        
+        for (*p_esp = 1; *p_esp <= 10 - *p_f; (*p_esp)++) 
+        {
+            printf(" ");
+        }
+        
+        for (*p_col = 1; *p_col <= *p_f; (*p_col)++) 
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    printf("\n(d)\n");
+    for (*p_f = 1; *p_f <= 10; (*p_f)++) 
+    {
+        
+        for (*p_esp = 1; *p_esp <= 10 - *p_f; (*p_esp)++) 
+        {
+            printf(" ");
+        }
+       
+        for (*p_col = 1; *p_col <= *p_f; (*p_col)++) 
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}

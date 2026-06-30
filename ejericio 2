@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() 
+{
+    float f, c;
+    float *pf = &f, *pc = &c;
+
+    printf("%10s%10s\n", "FAHRENHEIT", "CELSIUS");
+
+    for (*pf = 0; *pf <= 212; (*pf)++) 
+    {
+      
+        *pc = (5.0 / 9.0) * (*pf - 32.0);
+        
+        printf("%10.0f%10.3f\n", *pf, *pc);
+    }
+
+    return 0;
+}

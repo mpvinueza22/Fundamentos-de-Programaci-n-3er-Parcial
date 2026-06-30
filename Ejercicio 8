@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main() 
+{
+    int c;
+    int carac = 0, pal = 0, lineas = 0, en_palabra = 0;
+    
+    int *p_c = &c;
+    int *p_carac = &carac, *p_pal = &pal, *p_lin = &lineas, *p_estado = &en_palabra;
+
+    printf("Ingrese el texto (Presione Ctrl+Z y Enter al finalizar para terminar):\n");
+
+    while ((*p_c = getchar()) != EOF) 
+    {
+        (*p_carac)++; // Contar cada carácter
+
+        if (*p_c == '\n') 
+        {
+            (*p_lin)++; // Contar cada línea
+        }
+
+        if (*p_c == ' ' || *p_c == '\t' || *p_c == '\n') 
+        {
+            *p_estado = 0;
+        } 
+        else if (*p_estado == 0) 
+        {
+            *p_estado = 1; 
+            (*p_pal)++;
+        }
+    }
+
+    printf("\n--- RESULTADOS ---\n");
+    printf("Caracteres: %d\n", *p_carac);
+    printf("Palabras: %d\n", *p_pal);
+    printf("Lineas: %d\n", *p_lin);
+
+    return 0;
+}

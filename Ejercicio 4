@@ -1,0 +1,42 @@
+#include <stdio.h>
+
+int main() 
+{
+    int binario, digito, peso = 1, decimal = 0, es_valido = 1;
+    int *p_bin = &binario, *p_dig = &digito, *p_peso = &peso;
+    int *p_dec = &decimal, *p_val = &es_valido;
+    int temp;
+    int *p_temp = &temp;
+
+    printf("Ingrese un numero binario: ");
+    scanf("%d", p_bin);
+
+    *p_temp = *p_bin; // Guardamos el valor original en una variable temporal
+
+    while (*p_temp > 0) 
+    {
+        *p_dig = *p_temp % 10; // Extraer último dígito
+        
+        // Validar que solo sea 0 o 1
+        if (*p_dig != 0 && *p_dig != 1) 
+        {
+            *p_val = 0; // Marcar como no válido
+            break;
+        }
+        
+        *p_dec = *p_dec + (*p_dig * (*p_peso));
+        *p_peso = *p_peso * 2; // El peso binario aumenta (1, 2, 4, 8...)
+        *p_temp = *p_temp / 10;
+    }
+
+    if (*p_val == 1) 
+    {
+        printf("El equivalente decimal del numero %d binario es: %d\n", *p_bin, *p_dec);
+    } 
+    else 
+    {
+        printf("Error: El numero ingresado NO es binario (contiene digitos diferentes de 0 y 1).\n");
+    }
+
+    return 0;
+}

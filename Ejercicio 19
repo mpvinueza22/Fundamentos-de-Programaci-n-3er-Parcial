@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main() 
+{
+    int cuenta;
+    float saldo_inicial, creditos, limite, nuevo_saldo;
+
+    int *p_cta = &cuenta;
+    float *p_sini = &saldo_inicial, *p_cred = &creditos, *p_lim = &limite, *p_nsal = &nuevo_saldo;
+
+    while (1) 
+    {
+        printf("Ingrese numero de cuenta <-1 para fin>: ");
+        scanf("%d", p_cta);
+
+        if (*p_cta == -1) 
+        {
+            break;
+        }
+
+        printf("Ingrese balance inicial : ");
+        scanf("%f", p_sini);
+
+        printf("Ingrese total de creditos: ");
+        scanf("%f", p_cred);
+
+        printf("Ingrese credito limite  : ");
+        scanf("%f", p_lim);
+
+       
+        *p_nsal = *p_sini + *p_cred;
+
+       
+        if (*p_nsal > *p_lim) 
+        {
+            printf("Cuenta       : %d\n", *p_cta);
+            printf("Credito limite: %.2f\n", *p_lim);
+            printf("Balance      : %.2f\n", *p_nsal);
+            printf("Limite de credito excedido.\n");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
